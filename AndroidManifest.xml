@@ -41,7 +41,7 @@
 
 	    <uses-library android:name="com.google.android.glass" android:required="true" />
 
-		<activity android:name=".HostListActivity" >
+		<activity android:name="com.thisisnotajoke.connectshades.MainActivity" >
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
@@ -63,21 +63,11 @@
 			<meta-data android:name="com.google.android.glass.VoiceTrigger" android:resource="@xml/connect" />
 		</activity>
 
-		<activity android:name=".PubkeyListActivity" android:configChanges="keyboardHidden|orientation" />
-		<activity android:name=".GeneratePubkeyActivity" android:configChanges="keyboardHidden|orientation" />
-		<activity android:name=".HostEditorActivity" android:configChanges="keyboardHidden|orientation" />
-		<activity android:name=".PortForwardListActivity" android:configChanges="keyboardHidden|orientation" />
-		<activity android:name=".SettingsActivity" android:configChanges="keyboardHidden|orientation" />
-		<activity android:name=".WizardActivity" android:configChanges="keyboardHidden|orientation" />
-		<activity android:name=".HelpActivity" android:configChanges="keyboardHidden|orientation" />
-		<activity android:name=".HelpTopicActivity" android:configChanges="keyboardHidden|orientation" />
-		<activity android:name=".ColorsActivity" android:configChanges="keyboardHidden|orientation" />
-
-		<service android:name="org.connectbot.service.TerminalManager"
+		<service android:name="com.thisisnotajoke.connectshades.service.TerminalManager"
 			android:configChanges="keyboardHidden|orientation"
 			android:description="@string/service_desc" />
 
-		<activity android:name=".ConsoleActivity" android:configChanges="keyboardHidden|orientation"
+		<activity android:name="com.thisisnotajoke.connectshades.ConsoleActivity" android:configChanges="keyboardHidden|orientation"
 			android:theme="@style/NoTitle" android:windowSoftInputMode="stateAlwaysVisible|adjustResize"
 			android:launchMode="singleTop">
 			<intent-filter>
