@@ -63,6 +63,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.AdapterView.OnItemClickListener;
 
+import com.thisisnotajoke.connectshades.R;
+
 public class HostListActivity extends ListActivity {
 	public final static int REQUEST_EDIT = 1;
 

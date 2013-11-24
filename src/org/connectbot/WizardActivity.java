@@ -28,6 +28,8 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ViewFlipper;
 
+import com.thisisnotajoke.connectshades.R;
+
 /**
  * Show a series of wizard-like steps to the user, which might include an EULA,
  * program credits, and helpful hints.

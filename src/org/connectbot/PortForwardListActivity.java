@@ -57,6 +57,8 @@ import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+import com.thisisnotajoke.connectshades.R;
+
 /**
  * List all portForwards for a particular host and provide a way for users to add more portForwards,
  * edit existing portForwards, and delete portForwards.

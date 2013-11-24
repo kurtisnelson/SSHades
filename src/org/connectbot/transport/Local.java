@@ -23,7 +23,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Map;
 
-import org.connectbot.R;
 import org.connectbot.bean.HostBean;
 import org.connectbot.service.TerminalBridge;
 import org.connectbot.service.TerminalManager;
@@ -34,6 +33,7 @@ import android.net.Uri;
 import android.util.Log;
 
 import com.google.ase.Exec;
+import com.thisisnotajoke.connectshades.R;
 
 /**
  * @author Kenny Root

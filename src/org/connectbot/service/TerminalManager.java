@@ -31,7 +31,6 @@ import java.util.Map.Entry;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import org.connectbot.R;
 import org.connectbot.bean.HostBean;
 import org.connectbot.bean.PubkeyBean;
 import org.connectbot.transport.TransportFactory;
@@ -59,6 +58,8 @@ import android.os.Message;
 import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.util.Log;
+
+import com.thisisnotajoke.connectshades.R;
 
 /**
  * Manager for SSH connections that runs as a service. This service holds a list

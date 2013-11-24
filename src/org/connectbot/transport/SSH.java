@@ -41,7 +41,6 @@ import java.util.Map.Entry;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.connectbot.R;
 import org.connectbot.bean.HostBean;
 import org.connectbot.bean.PortForwardBean;
 import org.connectbot.bean.PubkeyBean;
@@ -56,6 +55,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 
+import com.thisisnotajoke.connectshades.R;
 import com.trilead.ssh2.AuthAgentCallback;
 import com.trilead.ssh2.ChannelCondition;
 import com.trilead.ssh2.Connection;

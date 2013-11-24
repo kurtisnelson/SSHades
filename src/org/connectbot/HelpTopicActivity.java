@@ -23,6 +23,8 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.thisisnotajoke.connectshades.R;
+
 /**
  * @author Kenny Root
  *

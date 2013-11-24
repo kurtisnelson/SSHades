@@ -75,6 +75,8 @@ import android.widget.Toast;
 import android.widget.ViewFlipper;
 import android.widget.AdapterView.OnItemClickListener;
 
+import com.thisisnotajoke.connectshades.R;
+
 import de.mud.terminal.vt320;
 
 public class ConsoleActivity extends Activity {

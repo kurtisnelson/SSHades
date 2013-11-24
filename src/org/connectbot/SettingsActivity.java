@@ -25,6 +25,8 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
+import com.thisisnotajoke.connectshades.R;
+
 public class SettingsActivity extends PreferenceActivity {
 	private static final String TAG = "ConnectBot.Settings";
 

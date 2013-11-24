@@ -17,11 +17,11 @@
 
 package org.connectbot.util;
 
-import org.connectbot.R;
-
 import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
+
+import com.thisisnotajoke.connectshades.R;
 
 public class EntropyDialog extends Dialog implements OnEntropyGatheredListener {
 

@@ -42,6 +42,8 @@ import android.widget.Spinner;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.AdapterView.OnItemSelectedListener;
 
+import com.thisisnotajoke.connectshades.R;
+
 /**
  * @author Kenny Root
  *

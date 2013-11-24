@@ -24,7 +24,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.connectbot.R;
 import org.connectbot.TerminalView;
 import org.connectbot.bean.HostBean;
 import org.connectbot.bean.PortForwardBean;
@@ -43,6 +42,9 @@ import android.graphics.Paint.FontMetrics;
 import android.graphics.Typeface;
 import android.text.ClipboardManager;
 import android.util.Log;
+
+import com.thisisnotajoke.connectshades.R;
+
 import de.mud.terminal.VDUBuffer;
 import de.mud.terminal.VDUDisplay;
 import de.mud.terminal.vt320;

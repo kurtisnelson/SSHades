@@ -19,8 +19,6 @@ package org.connectbot.util;
 
 import java.util.Vector;
 
-import org.connectbot.R;
-
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -30,6 +28,8 @@ import android.graphics.Paint.FontMetrics;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
+
+import com.thisisnotajoke.connectshades.R;
 
 public class EntropyView extends View {
 	private static final int SHA1_MAX_BYTES = 20;

@@ -49,6 +49,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 
+import com.thisisnotajoke.connectshades.R;
 import com.trilead.ssh2.signature.ECDSASHA2Verify;
 
 public class GeneratePubkeyActivity extends Activity implements OnEntropyGatheredListener {
