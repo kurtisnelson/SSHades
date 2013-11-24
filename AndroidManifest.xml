@@ -16,20 +16,18 @@
  limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-	package="org.connectbot"
+	package="com.thisisnotajoke.connectshades"
 	android:versionName="1.7.1"
 	android:versionCode="365"
 	android:installLocation="auto">
 
-	<uses-sdk android:targetSdkVersion="15" android:minSdkVersion="4" />
+	<uses-sdk android:targetSdkVersion="15" android:minSdkVersion="15" />
 
 	<uses-permission android:name="android.permission.INTERNET" />
 	<uses-permission android:name="android.permission.VIBRATE" />
 	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 	<uses-permission android:name="android.permission.WAKE_LOCK" />
-
-	<uses-feature android:name="android.hardware.touchscreen" android:required="false"/>
 
 	<supports-screens />
 
@@ -40,6 +38,8 @@
 		android:allowBackup="true"
 		android:backupAgent=".service.BackupAgent"
 		android:killAfterRestore="true">
+
+	    <uses-library android:name="com.google.android.glass" android:required="true" />
 
 		<activity android:name=".HostListActivity" >
 			<intent-filter>
@@ -57,6 +57,10 @@
 				<data android:scheme="telnet" />
 				<data android:scheme="local" />
 			</intent-filter>
+			<intent-filter>
+			    <action android:name="com.google.android.glass.action.VOICE_TRIGGER" />
+			</intent-filter>
+			<meta-data android:name="com.google.android.glass.VoiceTrigger" android:resource="@xml/connect" />
 		</activity>
 
 		<activity android:name=".PubkeyListActivity" android:configChanges="keyboardHidden|orientation" />
