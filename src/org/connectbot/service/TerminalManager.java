@@ -192,8 +192,6 @@ public class TerminalManager extends Service implements BridgeDisconnectedListen
 
 		connectivityManager.cleanup();
 
-		ConnectionNotifier.getInstance().hideRunningNotification(this);
-
 		disableMediaPlayer();
 	}
 
@@ -242,10 +240,6 @@ public class TerminalManager extends Service implements BridgeDisconnectedListen
 
 		if (bridge.isUsingNetwork()) {
 			connectivityManager.incRef();
-		}
-
-		if (prefs.getBoolean(PreferenceConstants.CONNECTION_PERSIST, true)) {
-			ConnectionNotifier.getInstance().showRunningNotification(this);
 		}
 
 		// also update database with new connected time
@@ -325,8 +319,6 @@ public class TerminalManager extends Service implements BridgeDisconnectedListen
 	 * Called by child bridge when somehow it's been disconnected.
 	 */
 	public void onDisconnected(TerminalBridge bridge) {
-		boolean shouldHideRunningNotification = false;
-
 		synchronized (bridges) {
 			// remove this bridge from our list
 			bridges.remove(bridge);
@@ -340,16 +332,11 @@ public class TerminalManager extends Service implements BridgeDisconnectedListen
 
 			if (bridges.size() == 0 &&
 					mPendingReconnect.size() == 0) {
-				shouldHideRunningNotification = true;
 			}
 		}
 
 		synchronized (disconnected) {
 			disconnected.add(bridge.host);
-		}
-
-		if (shouldHideRunningNotification) {
-			ConnectionNotifier.getInstance().hideRunningNotification(this);
 		}
 
 		// pass notification back up to gui
@@ -595,8 +582,6 @@ public class TerminalManager extends Service implements BridgeDisconnectedListen
 	public void sendActivityNotification(HostBean host) {
 		if (!prefs.getBoolean(PreferenceConstants.BELL_NOTIFICATION, false))
 			return;
-
-		ConnectionNotifier.getInstance().showActivityNotification(this, host);
 	}
 
 	/* (non-Javadoc)
