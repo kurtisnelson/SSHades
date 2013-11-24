@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <group android:id="@+id/group_host" >
+        <item
+            android:id="@+id/connect_menu_item"
+            android:title="@string/resolve_connect"/>
+        <item
+            android:id="@+id/delete_menu_item"
+            android:icon="@drawable/ic_delete"
+            android:title="@string/menu_delete"/>
+    </group>
+    <group android:id="@+id/group_app" >
+        <item
+            android:id="@+id/add_menu_item"
+            android:title="@string/menu_insert"/>
+    </group>
+
+</menu>
