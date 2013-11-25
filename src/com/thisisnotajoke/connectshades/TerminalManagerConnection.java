@@ -33,8 +33,6 @@ public class TerminalManagerConnection implements ServiceConnection {
 	public void onServiceConnected(ComponentName className, IBinder service) {
 		bound = ((TerminalManager.TerminalBinder) service).getService();
 
-		// let manager know about our event handling services
-
 		Log.d(TAG, String.format("Connected to TerminalManager and found bridges.size=%d",
 				bound.bridges.size()));
 

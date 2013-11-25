@@ -33,5 +33,4 @@
 		android:padding="10dip"
 		android:layout_centerInParent="true"
 		/>
-
 </RelativeLayout>

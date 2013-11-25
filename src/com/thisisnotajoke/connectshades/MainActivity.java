@@ -47,8 +47,8 @@ public class MainActivity extends Activity {
 		// activity, start a service, or broadcast another intent.
 		switch (item.getItemId()) {
 		case R.id.connect_menu_item:
-			Uri nick = Uri.parse("ssh://#"+hostsView.getSelectedHost().getNickname());
-			startActivity(new Intent(Intent.ACTION_VIEW, nick));
+			Uri uri = hostsView.getSelectedHost().getUri();
+			startActivity(new Intent(Intent.ACTION_VIEW, uri));
 			return true;
 		case R.id.delete_menu_item:
 		default:
