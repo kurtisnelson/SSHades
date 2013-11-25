@@ -64,12 +64,6 @@ public class TerminalManagerConnection implements ServiceConnection {
 	}
 
 	public void onServiceDisconnected(ComponentName className) {
-		// tell each bridge to forget about our prompt handler
-		synchronized (bound.bridges) {
-			for (TerminalBridge bridge : bound.bridges)
-				bridge.promptHelper.setHandler(null);
-		}
-
 		parent.disconnected();
 		bound = null;
 	}

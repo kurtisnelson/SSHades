@@ -15,6 +15,10 @@ import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
@@ -23,6 +27,8 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.google.android.glass.touchpad.GestureDetector;
 
 public class ConsoleActivity extends Activity {
 	/**
@@ -35,6 +41,7 @@ public class ConsoleActivity extends Activity {
 	private TerminalManagerConnection terminalManagerConnection;
 	private TerminalBridge activeBridge;
 	private TerminalView terminalView;
+	private GestureDetector gestureDetector;
 
 	// Prompt Stuff
 	private RelativeLayout stringPromptGroup;
@@ -55,24 +62,24 @@ public class ConsoleActivity extends Activity {
 
 		Log.d(TAG, "Requesting bridge " + requestedUri);
 
+		gestureDetector = new ConsoleGestureDetector(this);
 		promptHandler = new PromptHandler();
 
 		terminalManagerConnection = new TerminalManagerConnection(this);
-
 
 		stringPromptGroup = (RelativeLayout) findViewById(R.id.console_password_group);
 		stringPromptInstructions = (TextView) findViewById(R.id.console_password_instructions);
 		stringPrompt = (EditText) findViewById(R.id.console_password);
 		stringPrompt.setOnKeyListener(new PromptKeyListener());
 
-        booleanPromptGroup = (RelativeLayout) findViewById(R.id.console_boolean_group);
-        booleanPrompt = (TextView) findViewById(R.id.console_prompt);
+		booleanPromptGroup = (RelativeLayout) findViewById(R.id.console_boolean_group);
+		booleanPrompt = (TextView) findViewById(R.id.console_prompt);
 
-        booleanYes = (Button) findViewById(R.id.console_prompt_yes);
-        booleanYes.setOnClickListener(new PromptClickListener(true));
+		booleanYes = (Button) findViewById(R.id.console_prompt_yes);
+		booleanYes.setOnClickListener(new PromptClickListener(true));
 
-        booleanNo = (Button) findViewById(R.id.console_prompt_no);
-        booleanNo.setOnClickListener(new PromptClickListener(false));
+		booleanNo = (Button) findViewById(R.id.console_prompt_no);
+		booleanNo.setOnClickListener(new PromptClickListener(false));
 	}
 
 	public void connected() {
@@ -82,6 +89,10 @@ public class ConsoleActivity extends Activity {
 
 	public void disconnected() {
 		setActiveBridge(null);
+	}
+
+	public void disconnect() {
+		this.finish();
 	}
 
 	@Override
@@ -122,9 +133,12 @@ public class ConsoleActivity extends Activity {
 		LinearLayout holder = (LinearLayout) findViewById(R.id.console);
 		if (activeBridge != b && terminalView != null) {
 			terminalView.destroy();
+			activeBridge.promptHelper.setHandler(null);
 		}
 		holder.removeAllViews();
 		activeBridge = b;
+		if (activeBridge == null)
+			return;
 		terminalView = new TerminalView(this, activeBridge);
 		activeBridge.promptHelper.setHandler(promptHandler);
 
@@ -207,15 +221,45 @@ public class ConsoleActivity extends Activity {
 
 	private class PromptClickListener implements OnClickListener {
 		Boolean answer;
-		public PromptClickListener(Boolean answer){
+
+		public PromptClickListener(Boolean answer) {
 			this.answer = answer;
 		}
-        public void onClick(View v) {
-                PromptHelper helper = getCurrentPromptHelper();
-                if(helper == null)
-                	return;
-                helper.setResponse(answer);
-                updatePromptVisible();
+
+		public void onClick(View v) {
+			PromptHelper helper = getCurrentPromptHelper();
+			if (helper == null)
+				return;
+			helper.setResponse(answer);
+			updatePromptVisible();
+		}
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		MenuInflater inflater = getMenuInflater();
+		inflater.inflate(R.menu.connection, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// Handle item selection. Menu items typically start another
+		// activity, start a service, or broadcast another intent.
+		switch (item.getItemId()) {
+		case R.id.disconnect_menu_item:
+			disconnect();
+			return true;
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+	}
+
+	@Override
+    public boolean onGenericMotionEvent(MotionEvent event) {
+        if (gestureDetector != null) {
+            return gestureDetector.onMotionEvent(event);
         }
-}
+        return false;
+    }
 }

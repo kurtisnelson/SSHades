@@ -1,0 +1,6 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item
+        android:id="@+id/disconnect_menu_item"
+        android:icon="@drawable/ic_delete"
+        android:title="@string/list_host_disconnect"/>
+</menu>
