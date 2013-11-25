@@ -1,4 +1,4 @@
-package com.thisisnotajoke.connectshades;
+package com.thisisnotajoke.SSHades;
 
 import java.util.ArrayList;
 

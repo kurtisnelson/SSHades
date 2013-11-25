@@ -59,7 +59,7 @@ import android.os.Vibrator;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import com.thisisnotajoke.connectshades.R;
+import com.thisisnotajoke.SSHades.R;
 
 /**
  * Manager for SSH connections that runs as a service. This service holds a list

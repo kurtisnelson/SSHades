@@ -29,7 +29,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
-import com.thisisnotajoke.connectshades.R;
+import com.thisisnotajoke.SSHades.R;
 
 public class EntropyView extends View {
 	private static final int SHA1_MAX_BYTES = 20;

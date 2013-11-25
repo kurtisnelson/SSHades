@@ -49,7 +49,7 @@ import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.util.Log;
 
-import com.thisisnotajoke.connectshades.R;
+import com.thisisnotajoke.SSHades.R;
 
 public class HostEditorActivity extends PreferenceActivity implements OnSharedPreferenceChangeListener {
 	public class CursorPreferenceHack implements SharedPreferences {

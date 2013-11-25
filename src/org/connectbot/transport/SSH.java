@@ -55,7 +55,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 
-import com.thisisnotajoke.connectshades.R;
+import com.thisisnotajoke.SSHades.R;
 import com.trilead.ssh2.AuthAgentCallback;
 import com.trilead.ssh2.ChannelCondition;
 import com.trilead.ssh2.Connection;

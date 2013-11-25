@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.thisisnotajoke.connectshades;
+package com.thisisnotajoke.SSHades;
 
 import org.connectbot.service.PromptHelper;
 

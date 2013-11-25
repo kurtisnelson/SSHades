@@ -1,4 +1,4 @@
-package com.thisisnotajoke.connectshades;
+package com.thisisnotajoke.SSHades;
 
 import org.connectbot.util.HostDatabase;
 
@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import com.thisisnotajoke.SSHades.R;
 
 public class MainActivity extends Activity {
 	private HostsView hostsView;

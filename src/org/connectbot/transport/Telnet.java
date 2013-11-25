@@ -37,7 +37,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 
-import com.thisisnotajoke.connectshades.R;
+import com.thisisnotajoke.SSHades.R;
 
 import de.mud.telnet.TelnetProtocolHandler;
 

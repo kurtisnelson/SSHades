@@ -1,4 +1,4 @@
-package com.thisisnotajoke.connectshades;
+package com.thisisnotajoke.SSHades;
 
 import org.connectbot.bean.HostBean;
 import org.connectbot.transport.TransportFactory;
@@ -15,6 +15,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
+import com.thisisnotajoke.SSHades.R;
 
 public class HostActivity extends Activity {
 

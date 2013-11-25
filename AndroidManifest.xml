@@ -16,7 +16,7 @@
  limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.thisisnotajoke.connectshades"
+    package="com.thisisnotajoke.SSHades"
     android:installLocation="auto"
     android:versionCode="1"
     android:versionName="0.1" >
@@ -33,7 +33,7 @@
 
     <application
         android:allowBackup="true"
-        android:backupAgent="com.thisisnotajoke.connectshades.service.BackupAgent"
+        android:backupAgent="org.connectbot.service.BackupAgent"
         android:description="@string/app_desc"
         android:icon="@drawable/icon"
         android:killAfterRestore="true"
@@ -42,7 +42,7 @@
             android:name="com.google.android.glass"
             android:required="true" />
 
-        <activity android:name="com.thisisnotajoke.connectshades.MainActivity" >
+        <activity android:name="com.thisisnotajoke.SSHades.MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -72,12 +72,12 @@
         </activity>
 
         <service
-            android:name="com.thisisnotajoke.connectshades.service.TerminalManager"
+            android:name="com.connectbot.service.TerminalManager"
             android:configChanges="keyboardHidden|orientation"
             android:description="@string/service_desc" />
 
         <activity
-            android:name="com.thisisnotajoke.connectshades.ConsoleActivity"
+            android:name="com.thisisnotajoke.SSHades.ConsoleActivity"
             android:launchMode="singleTop" >
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -103,7 +103,7 @@
             android:value="AEdPqrEAAAAIDlFz9nSUr2g0gSytW0t2cNnYAGHDkptlVohsBA" />
 
         <activity
-            android:name="com.thisisnotajoke.connectshades.HostActivity"
+            android:name="com.thisisnotajoke.SSHades.HostActivity"
             android:label="@string/title_activity_host" >
         </activity>
     </application>

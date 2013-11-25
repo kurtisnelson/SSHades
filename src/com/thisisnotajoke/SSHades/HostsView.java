@@ -1,4 +1,4 @@
-package com.thisisnotajoke.connectshades;
+package com.thisisnotajoke.SSHades;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,6 +10,7 @@ import android.content.Context;
 
 import com.google.android.glass.app.Card;
 import com.google.android.glass.widget.CardScrollView;
+import com.thisisnotajoke.SSHades.R;
 
 public class HostsView extends CardScrollView {
 	private HostsCardScrollAdapter cards;

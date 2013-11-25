@@ -21,7 +21,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.view.View;
 
-import com.thisisnotajoke.connectshades.R;
+import com.thisisnotajoke.SSHades.R;
 
 public class EntropyDialog extends Dialog implements OnEntropyGatheredListener {
 

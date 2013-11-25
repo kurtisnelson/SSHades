@@ -1,4 +1,4 @@
-package com.thisisnotajoke.connectshades;
+package com.thisisnotajoke.SSHades;
 
 import org.connectbot.TerminalView;
 import org.connectbot.service.PromptHelper;
@@ -29,6 +29,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.glass.touchpad.GestureDetector;
+import com.thisisnotajoke.SSHades.R;
 
 public class ConsoleActivity extends Activity {
 	/**

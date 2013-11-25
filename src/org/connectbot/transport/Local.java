@@ -33,7 +33,7 @@ import android.net.Uri;
 import android.util.Log;
 
 import com.google.ase.Exec;
-import com.thisisnotajoke.connectshades.R;
+import com.thisisnotajoke.SSHades.R;
 
 /**
  * @author Kenny Root

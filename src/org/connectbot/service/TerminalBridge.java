@@ -43,7 +43,7 @@ import android.graphics.Typeface;
 import android.text.ClipboardManager;
 import android.util.Log;
 
-import com.thisisnotajoke.connectshades.R;
+import com.thisisnotajoke.SSHades.R;
 
 import de.mud.terminal.VDUBuffer;
 import de.mud.terminal.VDUDisplay;
