@@ -95,6 +95,10 @@ public class ConsoleActivity extends Activity {
 		this.finish();
 	}
 
+	public TerminalView getTerminalView(){
+		return terminalView;
+	}
+
 	@Override
 	public void onStart() {
 		super.onStart();
@@ -139,11 +143,16 @@ public class ConsoleActivity extends Activity {
 		activeBridge = b;
 		if (activeBridge == null)
 			return;
+		activeBridge.setCharset("utf-8");
 		terminalView = new TerminalView(this, activeBridge);
 		activeBridge.promptHelper.setHandler(promptHandler);
 
 		holder.addView(terminalView);
 		updatePromptVisible();
+	}
+
+	public TerminalBridge getActiveBridge() {
+		return activeBridge;
 	}
 
 	protected PromptHelper getCurrentPromptHelper() {

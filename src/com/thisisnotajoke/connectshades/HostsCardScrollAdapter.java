@@ -45,6 +45,10 @@ public class HostsCardScrollAdapter extends CardScrollAdapter {
 		cards.add(pos, view);
 	}
 
+	public void clear(){
+		cards.clear();
+	}
+
 	/* (non-Javadoc)
 	 * @see com.google.android.glass.widget.CardScrollAdapter#findIdPosition(java.lang.Object)
 	 */

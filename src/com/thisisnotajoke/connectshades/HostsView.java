@@ -22,12 +22,15 @@ public class HostsView extends CardScrollView {
 		cards = new HostsCardScrollAdapter(parent);
 		hosts = new ArrayList<HostBean>();
 		this.setAdapter(cards);
-		sync();
 		this.activate();
 	}
 
 	public HostBean getSelectedHost(){
-		return hosts.get(getSelectedItemPosition());
+		HostBean host = hosts.get(getSelectedItemPosition());
+		//make sure the font is readable
+		if(host.getFontSize() <= 16)
+			host.setFontSize(16);
+		return host;
 	}
 
 	@Override
@@ -35,8 +38,10 @@ public class HostsView extends CardScrollView {
 		return cards.getCount();
 	}
 
-	private void sync() {
+	public void sync() {
 		HostDatabase hostDb = new HostDatabase(context);
+		hosts.clear();
+		cards.clear();
 		for (HostBean host : hostDb.getHosts(false)) {
 			hosts.add(host);
 			cards.build(host);

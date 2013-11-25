@@ -1,5 +1,7 @@
 package com.thisisnotajoke.connectshades;
 
+import org.connectbot.util.HostDatabase;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -21,6 +23,11 @@ public class MainActivity extends Activity {
 		setContentView(hostsView);
 	}
 
+	@Override
+	protected void onResume() {
+		super.onResume();
+		hostsView.sync();
+	}
 	@Override
     public boolean onPrepareOptionsMenu(Menu menu) {
 		int pos = hostsView.getSelectedItemPosition();
@@ -47,10 +54,11 @@ public class MainActivity extends Activity {
 		// activity, start a service, or broadcast another intent.
 		switch (item.getItemId()) {
 		case R.id.connect_menu_item:
-			Uri uri = hostsView.getSelectedHost().getUri();
-			startActivity(new Intent(Intent.ACTION_VIEW, uri));
-			return true;
+			return connectHost();
+		case R.id.add_menu_item:
+			return addHost();
 		case R.id.delete_menu_item:
+			return deleteHost();
 		default:
 			return super.onOptionsItemSelected(item);
 		}
@@ -60,5 +68,25 @@ public class MainActivity extends Activity {
 		public void onItemClick (AdapterView<?> parent, View view, int position, long id){
 			openOptionsMenu();
 		}
+	}
+
+	public boolean connectHost(){
+		Uri uri = hostsView.getSelectedHost().getUri();
+		startActivity(new Intent(Intent.ACTION_VIEW, uri));
+		return true;
+	}
+
+	public boolean deleteHost(){
+		HostDatabase hostDb = new HostDatabase(this);
+		hostDb.deleteHost(hostsView.getSelectedHost());
+		hostDb.close();
+		hostsView.sync();
+		return true;
+	}
+
+	public boolean addHost(){
+		Intent intent = new Intent(this, HostActivity.class);
+		startActivity(intent);
+		return true;
 	}
 }
